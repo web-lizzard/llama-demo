@@ -1,0 +1,22 @@
+volumes:
+  model-cache:
+
+services:
+  app:
+    build:
+      context: .
+    depends_on:
+      - model
+    ports:
+      - "8000:8000"
+
+  model:
+    image: ghcr.io/huggingface/text-generation-inference:1.0.1
+    platform: linux/x86_64
+    entrypoint: text-generation-launcher --json-output --model-id meta-llama/Llama-2-7b-chat-hf --disable-custom-kernels
+    environment:
+      - HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN}
+    ports:
+      - 8080:80
+    volumes:
+      - model-cache:/data

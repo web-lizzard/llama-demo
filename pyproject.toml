@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "llama-demo"
+version = "0.1.0"
+description = ""
+authors = ["web-lizzard <czarnous.adrian@gmail.com>"]
+readme = "README.md"
+packages = [{include = "llama_demo"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+transformers = "^4.31.0"
+text-generation = "^0.6.0"
+torch = "^2.0.1"
+uvicorn = "^0.23.2"
+fastapi = "^0.101.1"
+python-dotenv = "^1.0.0"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
